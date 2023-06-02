@@ -129,7 +129,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WZ9Od_0
+      name: Heart_2
       rect:
         serializedVersion: 2
         x: 0
@@ -150,13 +150,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_1
+      name: Heart_3
       rect:
         serializedVersion: 2
         x: 81
-        y: 469.6
+        y: 470
         width: 81
-        height: 117.4
+        height: 117
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,7 +171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_2
+      name: Heart_4
       rect:
         serializedVersion: 2
         x: 162
@@ -192,7 +192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_3
+      name: Heart_5
       rect:
         serializedVersion: 2
         x: 243
@@ -213,7 +213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_4
+      name: Heart_6
       rect:
         serializedVersion: 2
         x: 324
@@ -234,13 +234,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_5
+      name: Heart_7
       rect:
         serializedVersion: 2
         x: 405
-        y: 469.6
+        y: 470
         width: 81
-        height: 117.4
+        height: 117
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,7 +255,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_6
+      name: Heart_8
       rect:
         serializedVersion: 2
         x: 486
@@ -276,7 +276,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_7
+      name: Heart_9
       rect:
         serializedVersion: 2
         x: 567
@@ -297,7 +297,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_8
+      name: Heart_10
       rect:
         serializedVersion: 2
         x: 648
@@ -318,7 +318,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_9
+      name: Heart_J
       rect:
         serializedVersion: 2
         x: 729
@@ -339,7 +339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_10
+      name: Heart_Q
       rect:
         serializedVersion: 2
         x: 810
@@ -360,7 +360,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_11
+      name: Heart_K
       rect:
         serializedVersion: 2
         x: 891
@@ -381,7 +381,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_12
+      name: Heart_A
       rect:
         serializedVersion: 2
         x: 972
@@ -402,7 +402,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_13
+      name: Diamond_2
       rect:
         serializedVersion: 2
         x: 0
@@ -423,7 +423,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_14
+      name: Diamond_3
       rect:
         serializedVersion: 2
         x: 81
@@ -444,7 +444,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_15
+      name: Diamond_4
       rect:
         serializedVersion: 2
         x: 162
@@ -465,7 +465,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_16
+      name: Diamond_5
       rect:
         serializedVersion: 2
         x: 243
@@ -486,7 +486,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_17
+      name: Diamond_6
       rect:
         serializedVersion: 2
         x: 324
@@ -507,7 +507,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_18
+      name: Diamond_7
       rect:
         serializedVersion: 2
         x: 405
@@ -528,7 +528,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_19
+      name: Diamond_8
       rect:
         serializedVersion: 2
         x: 486
@@ -549,7 +549,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_20
+      name: Diamond_9
       rect:
         serializedVersion: 2
         x: 567
@@ -570,7 +570,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_21
+      name: Diamond_10
       rect:
         serializedVersion: 2
         x: 648
@@ -591,7 +591,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_22
+      name: Diamond_J
       rect:
         serializedVersion: 2
         x: 729
@@ -612,7 +612,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_23
+      name: Diamond_Q
       rect:
         serializedVersion: 2
         x: 810
@@ -633,7 +633,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_24
+      name: Diamond_K
       rect:
         serializedVersion: 2
         x: 891
@@ -654,7 +654,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_25
+      name: Diamond_A
       rect:
         serializedVersion: 2
         x: 972
@@ -675,13 +675,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_26
+      name: Club_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 235.6
+        x: 1
+        y: 236
         width: 81
-        height: 117.4
+        height: 117
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -696,7 +696,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_27
+      name: Club_3
       rect:
         serializedVersion: 2
         x: 81
@@ -717,7 +717,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_28
+      name: Club_4
       rect:
         serializedVersion: 2
         x: 162
@@ -738,7 +738,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_29
+      name: Club_5
       rect:
         serializedVersion: 2
         x: 243
@@ -759,13 +759,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_30
+      name: Club_6
       rect:
         serializedVersion: 2
         x: 324
-        y: 235.6
+        y: 236
         width: 81
-        height: 117.4
+        height: 117
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -780,7 +780,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_31
+      name: Club_7
       rect:
         serializedVersion: 2
         x: 405
@@ -801,7 +801,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_32
+      name: Club_8
       rect:
         serializedVersion: 2
         x: 486
@@ -822,13 +822,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_33
+      name: Club_9
       rect:
         serializedVersion: 2
         x: 567
-        y: 235.6
+        y: 236
         width: 81
-        height: 117.4
+        height: 117
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -843,7 +843,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_34
+      name: Club_10
       rect:
         serializedVersion: 2
         x: 648
@@ -864,7 +864,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_35
+      name: Club_J
       rect:
         serializedVersion: 2
         x: 729
@@ -885,7 +885,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_36
+      name: Club_Q
       rect:
         serializedVersion: 2
         x: 810
@@ -906,7 +906,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_37
+      name: Club_K
       rect:
         serializedVersion: 2
         x: 891
@@ -927,13 +927,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_38
+      name: Club_A
       rect:
         serializedVersion: 2
-        x: 972
-        y: 235.6
+        x: 971
+        y: 236
         width: 81
-        height: 117.4
+        height: 117
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -948,7 +948,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_39
+      name: Spades_2
       rect:
         serializedVersion: 2
         x: 0
@@ -969,7 +969,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_40
+      name: Spades_3
       rect:
         serializedVersion: 2
         x: 81
@@ -990,7 +990,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_41
+      name: Spades_4
       rect:
         serializedVersion: 2
         x: 162
@@ -1011,13 +1011,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_42
+      name: Spades_5
       rect:
         serializedVersion: 2
         x: 243
-        y: 118.6
+        y: 119
         width: 81
-        height: 117.4
+        height: 117
       alignment: 1
       pivot: {x: 0, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1032,7 +1032,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_43
+      name: Spades_6
       rect:
         serializedVersion: 2
         x: 324
@@ -1053,7 +1053,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_44
+      name: Spades_7
       rect:
         serializedVersion: 2
         x: 405
@@ -1074,7 +1074,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_45
+      name: Spades_8
       rect:
         serializedVersion: 2
         x: 486
@@ -1095,7 +1095,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_46
+      name: Spades_9
       rect:
         serializedVersion: 2
         x: 567
@@ -1116,7 +1116,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_47
+      name: Spades_10
       rect:
         serializedVersion: 2
         x: 648
@@ -1137,7 +1137,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_48
+      name: Spades_J
       rect:
         serializedVersion: 2
         x: 729
@@ -1158,7 +1158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_49
+      name: Spades_Q
       rect:
         serializedVersion: 2
         x: 810
@@ -1179,7 +1179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_50
+      name: Spades_K
       rect:
         serializedVersion: 2
         x: 891
@@ -1200,7 +1200,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_51
+      name: Spades_A
       rect:
         serializedVersion: 2
         x: 972
@@ -1221,7 +1221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_52
+      name: Backface
       rect:
         serializedVersion: 2
         x: 0
@@ -1242,7 +1242,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WZ9Od_53
+      name: JOKER
       rect:
         serializedVersion: 2
         x: 81
@@ -1504,71 +1504,71 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WZ9Od_0: 1213413682
-      WZ9Od_1: -1106788941
-      WZ9Od_10: 570717072
-      WZ9Od_11: 1873314944
-      WZ9Od_12: -1754097905
-      WZ9Od_13: 465703313
-      WZ9Od_14: 973697697
-      WZ9Od_15: -1689761086
-      WZ9Od_16: 1437531376
-      WZ9Od_17: -2118042397
-      WZ9Od_18: 331110856
-      WZ9Od_19: 1058019462
-      WZ9Od_2: -2083893429
-      WZ9Od_20: -1387343289
-      WZ9Od_21: 384634619
-      WZ9Od_22: -1071331783
-      WZ9Od_23: -1297189023
-      WZ9Od_24: -1886610958
-      WZ9Od_25: -2052091100
-      WZ9Od_26: 313717154
-      WZ9Od_27: -420676314
-      WZ9Od_28: 1388147235
-      WZ9Od_29: 355788825
-      WZ9Od_3: -527793220
-      WZ9Od_30: -506059884
-      WZ9Od_31: 1606411153
-      WZ9Od_32: -59408686
-      WZ9Od_33: 1696368907
-      WZ9Od_34: 1150491035
-      WZ9Od_35: 601439067
-      WZ9Od_36: -219297085
-      WZ9Od_37: 456679146
-      WZ9Od_38: 32134430
-      WZ9Od_39: 320915874
-      WZ9Od_4: -350447072
-      WZ9Od_40: 638789571
-      WZ9Od_41: -455125301
-      WZ9Od_42: 746546188
-      WZ9Od_43: 10892317
-      WZ9Od_44: 353120881
-      WZ9Od_45: -1828593769
-      WZ9Od_46: -886422984
-      WZ9Od_47: 1142880421
-      WZ9Od_48: -975835751
-      WZ9Od_49: -299080529
-      WZ9Od_5: 534119159
-      WZ9Od_50: 840877879
-      WZ9Od_51: 496148102
-      WZ9Od_52: 1126550824
-      WZ9Od_53: 2075864255
+      Backface: 1126550824
+      Club_10: 1150491035
+      Club_2: 313717154
+      Club_3: -420676314
+      Club_4: 1388147235
+      Club_5: 355788825
+      Club_6: -506059884
+      Club_7: 1606411153
+      Club_8: -59408686
+      Club_9: 1696368907
+      Club_A: 32134430
+      Club_J: 601439067
+      Club_K: 456679146
+      Club_Q: -219297085
+      Diamond_10: 384634619
+      Diamond_2: 465703313
+      Diamond_3: 973697697
+      Diamond_4: -1689761086
+      Diamond_5: 1437531376
+      Diamond_6: -2118042397
+      Diamond_7: 331110856
+      Diamond_8: 1058019462
+      Diamond_9: -1387343289
+      Diamond_A: -2052091100
+      Diamond_J: -1071331783
+      Diamond_K: -1886610958
+      Diamond_Q: -1297189023
+      Heart_10: 1475208623
+      Heart_2: 1213413682
+      Heart_3: -1106788941
+      Heart_4: -2083893429
+      Heart_5: -527793220
+      Heart_6: -350447072
+      Heart_7: 534119159
+      Heart_8: -1314896872
+      Heart_9: -1282013075
+      Heart_A: -1754097905
+      Heart_J: -2138838836
+      Heart_K: 1873314944
+      Heart_Q: 570717072
+      JOKER: 2075864255
+      Spades_10: 1142880421
+      Spades_2: 320915874
+      Spades_3: 638789571
+      Spades_4: -455125301
+      Spades_5: 746546188
+      Spades_6: 10892317
+      Spades_7: 353120881
+      Spades_8: -1828593769
+      Spades_9: -886422984
+      Spades_A: 496148102
+      Spades_J: -975835751
+      Spades_K: 840877879
+      Spades_Q: -299080529
       WZ9Od_54: 567538646
       WZ9Od_55: -1339078801
       WZ9Od_56: 1754732395
       WZ9Od_57: -562756548
       WZ9Od_58: -1027340763
       WZ9Od_59: 1433410808
-      WZ9Od_6: -1314896872
       WZ9Od_60: 297054002
       WZ9Od_61: 27957798
       WZ9Od_62: 1407869119
       WZ9Od_63: 49974857
       WZ9Od_64: -1781069210
-      WZ9Od_7: -1282013075
-      WZ9Od_8: 1475208623
-      WZ9Od_9: -2138838836
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

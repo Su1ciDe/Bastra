@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fa241175eca40a5ae5f9c87771e106a, type: 3}
+  m_Name: Clubs_8
+  m_EditorClassIdentifier: 
+  CardSuit: 1
+  CardRank: 7
+  CardFaceSprite: {fileID: -59408686, guid: c2c795d929435e248b24c4bc84657b24, type: 3}
+  Name: Sinek 8
+  Score: 0
