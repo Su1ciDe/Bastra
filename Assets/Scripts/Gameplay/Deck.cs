@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ScriptableObjects;
+using TMPro;
 using UnityEngine;
 using Utilities;
 
@@ -13,8 +14,11 @@ namespace Gameplay
 
 		[Space]
 		[SerializeField] private Card cardPrefab;
+		[SerializeField] private Transform cardsParent;
+		[Space]
+		[SerializeField] private TMP_Text txtDeckCount;
 
-		private void Start()
+		private void Awake()
 		{
 			DealDeck();
 		}
@@ -22,6 +26,7 @@ namespace Gameplay
 		public void DealDeck()
 		{
 			SpawnDeck();
+			txtDeckCount.SetText(Cards.Count.ToString());
 		}
 
 		private void SpawnDeck()
@@ -32,16 +37,24 @@ namespace Gameplay
 			for (int i = 0; i < cards.Count; i++)
 			{
 				var card = SpawnCard(cards[i]);
-				card.transform.localPosition = new Vector3(i * -0.5f, 0, 0);
+				// card.transform.localPosition = new Vector3(i * -0.5f, 0, 0);
 				Cards.Add(card);
 			}
 		}
 
 		public Card SpawnCard(CardSO cardSO)
 		{
-			var cardObj = Instantiate(cardPrefab, transform);
+			var cardObj = Instantiate(cardPrefab, cardsParent);
 			cardObj.Setup(cardSO);
 			return cardObj;
+		}
+
+		public Card PickCard()
+		{
+			var card = Cards[^1];
+			Cards.RemoveAt(Cards.Count - 1);
+			txtDeckCount.SetText(Cards.Count.ToString());
+			return card;
 		}
 	}
 }
