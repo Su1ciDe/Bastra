@@ -1,4 +1,5 @@
-﻿using UI;
+﻿using System.Collections;
+using UI;
 using UnityEngine;
 
 namespace Gameplay.Players
@@ -12,9 +13,36 @@ namespace Gameplay.Players
 			base.Setup(_playerSlot);
 		}
 
-		public void ThinkACardToPlay()
+		public override void TurnToPlay()
 		{
-			
+			base.TurnToPlay();
+			StartCoroutine(ThinkACardToPlay());
+		}
+
+		private IEnumerator ThinkACardToPlay()
+		{
+			yield return new WaitForSeconds(Random.Range(.5f, 1.5f));
+
+			if (Board.Instance.CardsInBoard.Count > 0)
+			{
+				for (int i = 0; i < Hand.Count; i++)
+				{
+					// Looks if can fish cards with same card
+					if (Card.IsCardsSame(Board.Instance.CardsInBoard[^1], Hand[i]))
+					{
+						PlayCard(Hand[i]);
+						yield break;
+					}
+				}
+			}
+
+			PlayCard(Hand[Random.Range(0, Hand.Count)]);
+		}
+
+		public override void PlayCard(Card card)
+		{
+			card.Open();
+			base.PlayCard(card);
 		}
 	}
 }

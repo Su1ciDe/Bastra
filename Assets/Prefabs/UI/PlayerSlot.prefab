@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d6ed48b1b8548a9900580a797f03b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardSlots: []
   txtScore: {fileID: 7517594489974008403}
   handHolder: {fileID: 17703789983596373}
 --- !u!1 &6942646659555863108
@@ -114,7 +113,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

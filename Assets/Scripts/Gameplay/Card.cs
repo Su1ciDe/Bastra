@@ -60,7 +60,7 @@ namespace Gameplay
 		{
 			if (GameManager.Instance.CurrentState != GameManager.State.GamePlaying) return;
 			if (!Owner.Equals(Player.Instance)) return;
-			//TODO: wait for turn
+			if (!Player.Instance.IsTurnToPlay) return;
 
 			Player.Instance.PlayCard(this);
 		}

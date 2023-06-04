@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DG.Tweening;
+using Gameplay.Players;
 using Interfaces;
 using Managers;
 using UnityEngine;
@@ -22,32 +23,37 @@ namespace Gameplay
 
 			seq.AppendCallback(() =>
 			{
+				// if only 2 card played and they have the same rank
 				if (CardsInBoard.Count.Equals(2) && CardsInBoard[0].IsOpen && CardsInBoard[1].IsOpen && Card.IsCardsSame(CardsInBoard[0], CardsInBoard[1]))
 				{
 					Bastra(CardsInBoard[0], CardsInBoard[1]);
 				}
-				else if (CardsInBoard.Count >= 2 && CardsInBoard[0].IsOpen && CardsInBoard[1].IsOpen && Card.IsCardsSame(CardsInBoard[^1], CardsInBoard[^2]))
+				// if board has more than 2 cards and the played cards have the same rank
+				else if (CardsInBoard.Count > 2 && CardsInBoard[^1].IsOpen && CardsInBoard[^2].IsOpen && Card.IsCardsSame(CardsInBoard[^1], CardsInBoard[^2]))
 				{
-					FishCards();
+					FishCards(CardsInBoard[^1].Owner);
+					CardsInBoard[^1].Owner = null;
+				}
+				// if board has more than 2 cards and the played card is jack
+				else if (CardsInBoard.Count > 2 && CardsInBoard[^1].IsOpen && CardsInBoard[^2].IsOpen && CardsInBoard[^1].CardSO.CardRank == CardRank.Jack)
+				{
+					FishCards(CardsInBoard[^1].Owner);
+					CardsInBoard[^1].Owner = null;
 				}
 			});
 
 			return seq;
 		}
 
-		public void FishCards()
+		public void FishCards(CardPlayer cardPlayer)
 		{
-			// last card is the played card
-			var owner = CardsInBoard[^1].Owner;
-			CardsInBoard[^1].Owner = null;
-
 			int totalScore = 0;
 			for (int i = 0; i < CardsInBoard.Count; i++)
 				totalScore += CardsInBoard[i].CardSO.Score;
 
-			owner.Score(CardsInBoard, totalScore);
+			cardPlayer.AddScore(CardsInBoard, totalScore);
 			CardsInBoard.Clear();
-			GameManager.Instance.PlayerScored(owner);
+			GameManager.Instance.PlayerScored(cardPlayer);
 		}
 
 		public void Bastra(Card card1, Card card2)
@@ -58,7 +64,7 @@ namespace Gameplay
 
 			int totalScore = GameManager.Instance.BastraScore + card1.CardSO.Score;
 
-			owner.Score(card1, card2, totalScore);
+			owner.AddScore(card1, card2, totalScore);
 			CardsInBoard.Clear();
 			GameManager.Instance.PlayerScored(owner);
 		}

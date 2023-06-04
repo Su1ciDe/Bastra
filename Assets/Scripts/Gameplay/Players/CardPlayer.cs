@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
+using Managers;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,6 +10,7 @@ namespace Gameplay.Players
 {
 	public class CardPlayer : MonoBehaviour
 	{
+		public bool IsTurnToPlay { get; set; }
 		public int TotalScore { get; set; }
 
 		public virtual string Name { get; set; }
@@ -20,6 +23,7 @@ namespace Gameplay.Players
 		private PlayerSlot playerSlot;
 
 		public event UnityAction<int> OnScore;
+		public event UnityAction OnPlayed;
 
 		public virtual void Setup(PlayerSlot _playerSlot)
 		{
@@ -38,30 +42,67 @@ namespace Gameplay.Players
 			return seq;
 		}
 
-		public virtual void PlayCard(Card card)
+		public virtual void TurnToPlay()
 		{
-			Board.Instance.Place(card);
-			Hand.Remove(card);
+			IsTurnToPlay = true;
 		}
 
-		public void Score(List<Card> cards, int score)
+		public virtual void PlayCard(Card card)
+		{
+			var sequence = Board.Instance.Place(card);
+			Hand.Remove(card);
+			IsTurnToPlay = false;
+
+			sequence.AppendCallback(() => OnPlayed?.Invoke());
+		}
+
+		public void AddScore(List<Card> cards, int score)
 		{
 			TotalScore += score;
-			// TODO: animations
+			playerSlot.Score(TotalScore);
+
+			const float delay = .15f;
+			// animations
+			var seq = DOTween.Sequence();
+			for (int i = 0; i < cards.Count; i++)
+			{
+				var card = cards[cards.Count - i - 1];
+				card.Open(false);
+				seq.Join(card.transform.DOMove(transform.position, .35f).SetDelay(delay).SetEase(Ease.InCirc).OnComplete(() => card.gameObject.SetActive(false)));
+			}
+
+			seq.AppendCallback(() => GameManager.Instance.CurrentState = GameManager.State.GamePlaying);
 
 			CollectedCards.AddRange(cards);
 
 			OnScore?.Invoke(TotalScore);
 		}
 
-		public void Score(Card card1, Card bastraCard, int score)
+		public void AddScore(Card card1, Card bastraCard, int score)
 		{
 			TotalScore += score;
-			// TODO: animations
+			playerSlot.Score(TotalScore);
+
+			// animations
+			const float delay = .15f;
+			bastraCard.transform.DOMove(transform.position, .5f).SetEase(Ease.InCirc).OnComplete(() => bastraCard.gameObject.SetActive(false));
+			card1.transform.DOMove(transform.position, .5f).SetDelay(delay).SetEase(Ease.InCirc).OnComplete(() =>
+			{
+				card1.gameObject.SetActive(false);
+				GameManager.Instance.CurrentState = GameManager.State.GamePlaying;
+			});
 
 			CollectedCards.Add(card1);
 			BastraCards.Add(bastraCard);
 
+			OnScore?.Invoke(TotalScore);
+		}
+
+		public void AddScore(int score)
+		{
+			TotalScore += score;
+			playerSlot.Score(TotalScore);
+			
 			OnScore?.Invoke(TotalScore);
 		}
 	}

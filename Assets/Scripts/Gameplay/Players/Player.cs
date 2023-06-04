@@ -39,5 +39,16 @@ namespace Gameplay.Players
 			seq.AppendCallback(() => card.Open());
 			return seq;
 		}
+
+		public void WinMatch(int wonMoney)
+		{
+			WinCount++;
+			Money += wonMoney;
+		}
+
+		public void LoseMatch()
+		{
+			LossCount++;
+		}
 	}
 }
