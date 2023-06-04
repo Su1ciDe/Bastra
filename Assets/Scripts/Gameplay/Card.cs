@@ -1,9 +1,10 @@
 ﻿using DG.Tweening;
+using Gameplay.Players;
 using Managers;
 using ScriptableObjects;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 namespace Gameplay
 {
@@ -11,6 +12,8 @@ namespace Gameplay
 	{
 		public CardSO CardSO { get; private set; }
 		public CardPlayer Owner { get; set; }
+
+		public bool IsOpen => !backFace.gameObject.activeSelf;
 
 		[SerializeField] private Image frontFace;
 		[SerializeField] private Image backFace;
@@ -21,24 +24,50 @@ namespace Gameplay
 			frontFace.sprite = cardSO.CardFaceSprite;
 		}
 
-		public void Open()
+		public void Open(bool isAnimated = true)
 		{
-			transform.DOScaleX(0, .25f).SetEase(Ease.InQuad).OnComplete(() =>
+			if (isAnimated)
+			{
+				transform.DOScaleX(0, .25f).SetEase(Ease.InQuad).OnComplete(() =>
+				{
+					backFace.gameObject.SetActive(false);
+					transform.DOScaleX(1, .25f).SetEase(Ease.OutQuad);
+				});
+			}
+			else
 			{
 				backFace.gameObject.SetActive(false);
-				transform.DOScaleX(1, .25f).SetEase(Ease.OutQuad);
-			});
+			}
 		}
 
-		public void Close()
+		public void Close(bool isAnimated = true)
 		{
-			backFace.gameObject.SetActive(true);
+			if (isAnimated)
+			{
+				transform.DOScaleX(0, .25f).SetEase(Ease.InQuad).OnComplete(() =>
+				{
+					backFace.gameObject.SetActive(true);
+					transform.DOScaleX(1, .25f).SetEase(Ease.OutQuad);
+				});
+			}
+			else
+			{
+				backFace.gameObject.SetActive(true);
+			}
 		}
 
 		public void OnPointerClick(PointerEventData eventData)
 		{
 			if (GameManager.Instance.CurrentState != GameManager.State.GamePlaying) return;
 			if (!Owner.Equals(Player.Instance)) return;
+			//TODO: wait for turn
+
+			Player.Instance.PlayCard(this);
+		}
+
+		public static bool IsCardsSame(Card card1, Card card2)
+		{
+			return card1.CardSO.CardRank == card2.CardSO.CardRank;
 		}
 	}
 }
