@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6895834218908118662}
   - component: {fileID: 1609017043740614113}
   m_Layer: 5
-  m_Name: PlayerProfile
+  m_Name: PlayerProfileMini
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

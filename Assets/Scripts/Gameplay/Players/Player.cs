@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Gameplay.Players
 {
@@ -7,26 +8,42 @@ namespace Gameplay.Players
 	{
 		public static Player Instance;
 
-		public override string Name
+		public static string Name
 		{
 			get => PlayerPrefs.GetString("PlayerName", "Player");
-			set => PlayerPrefs.SetString("PlayerName", value);
+			set
+			{
+				PlayerPrefs.SetString("PlayerName", value);
+				OnPlayerNameChanged?.Invoke();
+			}
 		}
-		public override int Money
+		public static int Money
 		{
 			get => PlayerPrefs.GetInt("Money", 1000);
 			set => PlayerPrefs.SetInt("Money", value);
 		}
-		public int WinCount
+		public override string PlayerName
+		{
+			get => Name;
+			set => Name = value;
+		}
+		public override int PlayerMoney
+		{
+			get => Money;
+			set => Money = value;
+		}
+		public static int WinCount
 		{
 			get => PlayerPrefs.GetInt("WinCount", 0);
 			set => PlayerPrefs.SetInt("WinCount", value);
 		}
-		public int LossCount
+		public static int LossCount
 		{
 			get => PlayerPrefs.GetInt("LossCount", 0);
 			set => PlayerPrefs.SetInt("LossCount", value);
 		}
+
+		public static event UnityAction OnPlayerNameChanged;
 
 		private void Awake()
 		{

@@ -52,8 +52,35 @@ namespace Managers
 
 		private void Start()
 		{
-			SetupPlayers();
+			CurrentState = State.WaitingToStart;
+		}
 
+		private void OnEnable()
+		{
+			SceneLoader.OnSceneLoad += OnSceneLoaded;
+		}
+
+		private void OnDisable()
+		{
+			SceneLoader.OnSceneLoad -= OnSceneLoaded;
+		}
+
+		private void OnSceneLoaded(SceneLoader.Scenes scene)
+		{
+			switch (scene)
+			{
+				case SceneLoader.Scenes.GameScene:
+					StartGame();
+					break;
+				case SceneLoader.Scenes.LobbyScene:
+					CurrentState = State.WaitingToStart;
+					break;
+			}
+		}
+
+		private void StartGame()
+		{
+			SetupPlayers();
 			CurrentState = State.DealingCardsToBoard;
 		}
 

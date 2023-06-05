@@ -13,8 +13,8 @@ namespace Gameplay.Players
 		public bool IsTurnToPlay { get; set; }
 		public int TotalScore { get; set; }
 
-		public virtual string Name { get; set; }
-		public virtual int Money { get; set; }
+		public virtual string PlayerName { get; set; }
+		public virtual int PlayerMoney { get; set; }
 
 		public List<Card> Hand { get; set; } = new List<Card>();
 		public List<Card> CollectedCards { get; set; } = new List<Card>();
@@ -33,7 +33,7 @@ namespace Gameplay.Players
 		public virtual void Setup(PlayerSlot _playerSlot)
 		{
 			playerSlot = _playerSlot;
-			playerSlot.Setup(Name, Money);
+			playerSlot.Setup(PlayerName, PlayerMoney);
 		}
 
 		public virtual Sequence DealCard(Card card)

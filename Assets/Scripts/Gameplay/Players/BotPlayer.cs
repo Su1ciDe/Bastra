@@ -12,8 +12,8 @@ namespace Gameplay.Players
 
 		public override void Setup(PlayerSlot _playerSlot)
 		{
-			Money = Random.Range(5, 50) * 100;
-			Name = "bot_" + _playerSlot.transform.GetSiblingIndex();
+			PlayerMoney = Random.Range(5, 50) * 100;
+			PlayerName = "bot_" + _playerSlot.transform.GetSiblingIndex();
 			base.Setup(_playerSlot);
 		}
 

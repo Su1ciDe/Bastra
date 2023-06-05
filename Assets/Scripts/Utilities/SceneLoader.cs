@@ -1,4 +1,6 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Utilities
 {
@@ -10,9 +12,18 @@ namespace Utilities
 			GameScene = 1,
 		}
 
-		public static void Load(Scenes targetSceneName)
+		private static Scenes targetScene;
+		public static event UnityAction<Scenes> OnSceneLoad;
+
+		public static void Load(Scenes _targetScene)
 		{
-			SceneManager.LoadSceneAsync((int)targetSceneName);
+			var loadSceneAsync = SceneManager.LoadSceneAsync((int)_targetScene);
+			loadSceneAsync.completed += SceneLoaded;
+		}
+
+		private static void SceneLoaded(AsyncOperation obj)
+		{
+			OnSceneLoad?.Invoke(targetScene);
 		}
 	}
 }
