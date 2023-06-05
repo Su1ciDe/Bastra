@@ -31,14 +31,16 @@ namespace Gameplay
 				// if board has more than 2 cards and the played cards have the same rank
 				else if (CardsInBoard.Count > 2 && CardsInBoard[^1].IsOpen && CardsInBoard[^2].IsOpen && Card.IsCardsSame(CardsInBoard[^1], CardsInBoard[^2]))
 				{
-					FishCards(CardsInBoard[^1].Owner);
-					CardsInBoard[^1].Owner = null;
+					var playedCard = CardsInBoard[^1];
+					FishCards(playedCard.Owner);
+					playedCard.Owner = null;
 				}
 				// if board has more than 2 cards and the played card is jack
 				else if (CardsInBoard.Count > 2 && CardsInBoard[^1].IsOpen && CardsInBoard[^2].IsOpen && CardsInBoard[^1].CardSO.CardRank == CardRank.Jack)
 				{
-					FishCards(CardsInBoard[^1].Owner);
-					CardsInBoard[^1].Owner = null;
+					var playedCard = CardsInBoard[^1];
+					FishCards(playedCard.Owner);
+					playedCard.Owner = null;
 				}
 			});
 
