@@ -37,7 +37,6 @@ namespace Gameplay
 			for (int i = 0; i < cards.Count; i++)
 			{
 				var card = SpawnCard(cards[i]);
-				// card.transform.localPosition = new Vector3(i * -0.5f, 0, 0);
 				Cards.Add(card);
 			}
 		}

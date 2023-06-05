@@ -18,6 +18,11 @@ namespace Gameplay
 		[SerializeField] private Image frontFace;
 		[SerializeField] private Image backFace;
 
+		private void OnDestroy()
+		{
+			transform.DOKill();
+		}
+
 		public void Setup(CardSO cardSO)
 		{
 			CardSO = cardSO;

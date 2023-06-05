@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Utilities;
 
 namespace UI
 {
@@ -36,10 +37,12 @@ namespace UI
 
 		private void BackToLobby()
 		{
+			SceneLoader.Load(SceneLoader.Scenes.LobbyScene);
 		}
 
 		private void NewGame()
 		{
+			SceneLoader.Load(SceneLoader.Scenes.GameScene);
 		}
 	}
 }

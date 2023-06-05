@@ -25,6 +25,11 @@ namespace Gameplay.Players
 		public static event UnityAction<ScoreType> OnScore;
 		public event UnityAction OnPlayed;
 
+		private void OnDestroy()
+		{
+			this.DOKill();
+		}
+
 		public virtual void Setup(PlayerSlot _playerSlot)
 		{
 			playerSlot = _playerSlot;
@@ -71,6 +76,7 @@ namespace Gameplay.Players
 			const float delay = .15f;
 			// animations
 			var seq = DOTween.Sequence();
+			seq.SetTarget(this);
 			for (int i = 0; i < cards.Count; i++)
 			{
 				var card = cards[cards.Count - i - 1];

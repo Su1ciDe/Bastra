@@ -12,12 +12,18 @@ namespace Gameplay
 	{
 		public List<Card> CardsInBoard { get; set; } = new List<Card>();
 
+		private void OnDestroy()
+		{
+			this.DOKill();
+		}
+
 		public Sequence Place(Card card)
 		{
 			CardsInBoard.Add(card);
 			card.transform.SetParent(transform);
 
 			var seq = DOTween.Sequence();
+			seq.SetTarget(this);
 			seq.Append(card.transform.DORotate(Random.Range(-20f, 20f) * Vector3.forward, .5f).SetEase(Ease.InExpo));
 			seq.Join(card.transform.DOMove(transform.position, .5f).SetEase(Ease.InOutQuad));
 
