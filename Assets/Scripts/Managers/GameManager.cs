@@ -27,6 +27,7 @@ namespace Managers
 			DealingCards,
 			GamePlaying,
 			Scoring,
+			FinishGame,
 			GameOver
 		}
 
@@ -74,9 +75,10 @@ namespace Managers
 					break;
 				case State.Scoring:
 					break;
-				case State.GameOver:
+				case State.FinishGame:
 					FinishGame();
-
+					break;
+				case State.GameOver:
 					break;
 				default:
 					throw new ArgumentOutOfRangeException();
@@ -102,14 +104,14 @@ namespace Managers
 
 		private void DealCardsToBoard()
 		{
-			Sequence tween = default;
+			Sequence seq = default;
 			for (int i = 0; i < 4; i++)
 			{
-				tween = Board.Instance.Place(Deck.Instance.PickCard()).SetDelay(i * .25f);
+				seq = Board.Instance.Place(Deck.Instance.PickCard()).SetDelay(i * .25f);
 				Board.Instance.CardsInBoard[i].Close(false);
 			}
 
-			tween.OnComplete(() =>
+			seq.OnComplete(() =>
 			{
 				Board.Instance.CardsInBoard[^1].Open();
 				CurrentState = State.DealingCards;
@@ -134,6 +136,8 @@ namespace Managers
 					seq = Players[i].DealCard(card).SetDelay(i + j * .25f);
 					card.Close(false);
 				}
+
+				Players[i].OnCardsDealt();
 			}
 
 			seq.OnComplete(() => CurrentState = State.GamePlaying);
@@ -189,6 +193,8 @@ namespace Managers
 				// player loses
 				Player.Instance.LoseMatch();
 			}
+
+			CurrentState = State.GameOver;
 		}
 
 		private void CalculateMostCardCollected()

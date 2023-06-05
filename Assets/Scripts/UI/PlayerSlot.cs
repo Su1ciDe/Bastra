@@ -30,6 +30,8 @@ namespace UI
 
 		public void Score(int score)
 		{
+			txtScore.transform.DOComplete();
+			txtScore.transform.DOScale(1.25f, .25f).SetEase(Ease.InOutSine).SetLoops(2,LoopType.Yoyo);
 			txtScore.SetText("Score: " + score.ToString());
 		}
 
