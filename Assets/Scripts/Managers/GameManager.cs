@@ -203,11 +203,8 @@ namespace Managers
 		private void FinishGame()
 		{
 			CurrentState = State.GameOver;
+
 			Board.Instance.FishCards(LastScoredPlayer);
-
-			// yield return new WaitForSeconds(2);
-			Debug.Log("finishgame " + CurrentState);
-
 			CalculateMostCardCollected();
 
 			CardPlayer winner = null;
@@ -234,8 +231,6 @@ namespace Managers
 				Player.Instance.LoseMatch();
 				OnGameLose?.Invoke(Bet);
 			}
-
-			CurrentState = State.GameOver;
 		}
 
 		private void CalculateMostCardCollected()
