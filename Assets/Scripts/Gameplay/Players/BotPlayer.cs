@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UI;
 using UnityEngine;
 using Utilities;
@@ -12,7 +13,7 @@ namespace Gameplay.Players
 
 		public override void Setup(PlayerSlot _playerSlot)
 		{
-			PlayerMoney = Random.Range(5, 50) * 100;
+			PlayerMoney = Random.Range(5, GameManager.Instance.Bet / 100) * 100;
 			PlayerName = "bot_" + _playerSlot.transform.GetSiblingIndex();
 			base.Setup(_playerSlot);
 		}

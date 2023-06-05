@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Gameplay;
@@ -81,6 +82,7 @@ namespace Managers
 
 		private void StartGame()
 		{
+			CurrentTurnCount = 0;
 			SetupPlayers();
 			CurrentState = State.DealingCardsToBoard;
 		}
@@ -154,7 +156,7 @@ namespace Managers
 		{
 			if (Deck.Instance.Cards.Count <= 0)
 			{
-				CurrentState = State.GameOver;
+				CurrentState = State.FinishGame;
 				return;
 			}
 
@@ -200,7 +202,11 @@ namespace Managers
 
 		private void FinishGame()
 		{
+			CurrentState = State.GameOver;
 			Board.Instance.FishCards(LastScoredPlayer);
+
+			// yield return new WaitForSeconds(2);
+			Debug.Log("finishgame " + CurrentState);
 
 			CalculateMostCardCollected();
 

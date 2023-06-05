@@ -20,6 +20,7 @@ namespace UI.Lobby
 		[SerializeField] private Toggle tggl4Players;
 		[Space]
 		[SerializeField] private Button btnCreateTable;
+		[SerializeField] private Button btnClose;
 
 		private int sliderStep;
 
@@ -27,6 +28,7 @@ namespace UI.Lobby
 		{
 			base.Awake();
 			btnCreateTable.onClick.AddListener(CreateTableClicked);
+			btnClose.onClick.AddListener(Hide);
 			sliderBetAmount.onValueChanged.AddListener(OnSliderChanged);
 		}
 
@@ -37,7 +39,7 @@ namespace UI.Lobby
 			sliderBetAmount.maxValue = Mathf.RoundToInt((float)tableSO.MaxBet / sliderStep);
 			txtMinBet.SetText(tableSO.MinBet.ToString());
 			txtMaxBet.SetText(tableSO.MaxBet.ToString());
-			txtCurrentBetAmount.SetText((tableSO.MinBet * sliderStep).ToString());
+			txtCurrentBetAmount.SetText(tableSO.MinBet.ToString());
 		}
 
 		private void OnSliderChanged(float sliderValue)

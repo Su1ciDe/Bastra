@@ -4155,6 +4155,7 @@ MonoBehaviour:
   tggl2Players: {fileID: 1592139096}
   tggl4Players: {fileID: 1481480853}
   btnCreateTable: {fileID: 752661213}
+  btnClose: {fileID: 2075943415}
 --- !u!1 &1322979673
 GameObject:
   m_ObjectHideFlags: 0

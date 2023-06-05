@@ -70,7 +70,7 @@ namespace Gameplay.Players
 		public void AddScore(List<Card> cards, int score)
 		{
 			TotalScore += score;
-			playerSlot.Score(TotalScore);
+			playerSlot.SetScoreText(TotalScore);
 
 			const float delay = .15f;
 			// animations
@@ -83,7 +83,11 @@ namespace Gameplay.Players
 				seq.Join(card.transform.DOMove(transform.position, .35f).SetDelay(delay).SetEase(Ease.InCirc).OnComplete(() => card.gameObject.SetActive(false)));
 			}
 
-			seq.AppendCallback(() => GameManager.Instance.CurrentState = GameManager.State.GamePlaying);
+			seq.AppendCallback(() =>
+			{
+				if (GameManager.Instance.CurrentState != GameManager.State.GameOver)
+					GameManager.Instance.CurrentState = GameManager.State.GamePlaying;
+			});
 
 			CollectedCards.AddRange(cards);
 
@@ -94,7 +98,7 @@ namespace Gameplay.Players
 		public void AddScore(Card card1, Card bastraCard, int score)
 		{
 			TotalScore += score;
-			playerSlot.Score(TotalScore);
+			playerSlot.SetScoreText(TotalScore);
 
 			// animations
 			const float delay = .15f;
@@ -114,7 +118,7 @@ namespace Gameplay.Players
 		public void AddScore(int score)
 		{
 			TotalScore += score;
-			playerSlot.Score(TotalScore);
+			playerSlot.SetScoreText(TotalScore);
 		}
 	}
 }

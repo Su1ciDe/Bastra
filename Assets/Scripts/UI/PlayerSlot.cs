@@ -29,7 +29,7 @@ namespace UI
 			playerProfile.Setup(playerName, money);
 		}
 
-		public void Score(int score)
+		public void SetScoreText(int score)
 		{
 			txtScore.transform.DOComplete();
 			txtScore.transform.DOScale(1.25f, .25f).SetEase(Ease.InOutSine).SetLoops(2,LoopType.Yoyo);
