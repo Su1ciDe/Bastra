@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 namespace Utilities
@@ -38,6 +39,19 @@ namespace Utilities
 			var picked = list.RandomItem();
 			list.Remove(picked);
 			return picked;
+		}
+		
+		public static string FormatBigNumber(long number)
+		{
+			return number switch
+			{
+				> 999999999999999 => number.ToString("0,,,,,.##Q", CultureInfo.InvariantCulture),
+				> 999999999999 => number.ToString("0,,,,.##T", CultureInfo.InvariantCulture),
+				> 999999999 => number.ToString("0,,,.##B", CultureInfo.InvariantCulture),
+				> 999999 => number.ToString("0,,.##M", CultureInfo.InvariantCulture),
+				> 999 => number.ToString("0,.##K", CultureInfo.InvariantCulture),
+				_ => number.ToString(CultureInfo.InvariantCulture)
+			};
 		}
 	}
 }

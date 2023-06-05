@@ -3,11 +3,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Lobby
 {
 	public class PlayerProfile : BasePanel
 	{
-		[SerializeField] private Button background;
 		[Space]
 		[SerializeField] private Button btnOpenProfile;
 		[Header("Player Profile Panel")]
@@ -22,14 +21,15 @@ namespace UI
 		private PlayerProfileMini playerProfileMini;
 		private EditPlayerNameUI editPlayerName;
 
-		private void Awake()
+		protected override void Awake()
 		{
+			base.Awake();
+
 			playerProfileMini = GetComponentInChildren<PlayerProfileMini>();
 			editPlayerName = GetComponentInChildren<EditPlayerNameUI>(true);
 
-			btnOpenProfile.onClick.AddListener(OpenProfile);
-			btnClosePanel.onClick.AddListener(CloseProfile);
-			background.onClick.AddListener(CloseProfile);
+			btnOpenProfile.onClick.AddListener(Show);
+			btnClosePanel.onClick.AddListener(Hide);
 			btnEditPlayerName.onClick.AddListener(editPlayerName.Show);
 		}
 
@@ -63,18 +63,6 @@ namespace UI
 			txtPlayerMoney.SetText("$" + money.ToString());
 			txtWinCount.SetText(winCount.ToString());
 			txtLossCount.SetText(lossCount.ToString());
-		}
-
-		private void OpenProfile()
-		{
-			background.gameObject.SetActive(true);
-			Show();
-		}
-
-		private void CloseProfile()
-		{
-			background.gameObject.SetActive(false);
-			Hide();
 		}
 	}
 }

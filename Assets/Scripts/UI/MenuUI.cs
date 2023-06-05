@@ -54,6 +54,7 @@ namespace UI
 
 		private void BackToLobby()
 		{
+			//TODO: ask before leaving
 			SceneLoader.Load(SceneLoader.Scenes.LobbyScene);
 		}
 
