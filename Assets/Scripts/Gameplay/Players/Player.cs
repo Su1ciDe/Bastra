@@ -22,16 +22,6 @@ namespace Gameplay.Players
 			get => PlayerPrefs.GetInt("Money", 1000);
 			set => PlayerPrefs.SetInt("Money", value);
 		}
-		public override string PlayerName
-		{
-			get => Name;
-			set => Name = value;
-		}
-		public override int PlayerMoney
-		{
-			get => Money;
-			set => Money = value;
-		}
 		public static int WinCount
 		{
 			get => PlayerPrefs.GetInt("WinCount", 0);
@@ -41,6 +31,16 @@ namespace Gameplay.Players
 		{
 			get => PlayerPrefs.GetInt("LossCount", 0);
 			set => PlayerPrefs.SetInt("LossCount", value);
+		}
+		public override string PlayerName
+		{
+			get => Name;
+			set => Name = value;
+		}
+		public override int PlayerMoney
+		{
+			get => Money;
+			set => Money = value;
 		}
 
 		public static event UnityAction OnPlayerNameChanged;

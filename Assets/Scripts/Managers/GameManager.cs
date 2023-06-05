@@ -119,6 +119,8 @@ namespace Managers
 
 		private void SetupPlayers()
 		{
+			Players = new List<CardPlayer>();
+
 			Player.Instance.Setup(PlayerSlotManager.Instance.PlayerSlots[0]);
 			Players.Add(Player.Instance);
 			Player.Instance.OnPlayed += NextPlayerTurn;
@@ -216,7 +218,7 @@ namespace Managers
 			if (winner is Player)
 			{
 				// player wins
-				int betWon = Bet * Players.Count;
+				int betWon = Bet * (Players.Count - 1);
 				Player.Instance.WinMatch(betWon);
 				OnGameWin?.Invoke(betWon);
 			}

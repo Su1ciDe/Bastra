@@ -38,7 +38,6 @@ namespace UI.Lobby
 			txtMinBet.SetText(tableSO.MinBet.ToString());
 			txtMaxBet.SetText(tableSO.MaxBet.ToString());
 			txtCurrentBetAmount.SetText((tableSO.MinBet * sliderStep).ToString());
-
 		}
 
 		private void OnSliderChanged(float sliderValue)
@@ -49,17 +48,17 @@ namespace UI.Lobby
 		private void CreateTableClicked()
 		{
 			int betAmount = (int)sliderBetAmount.value * sliderStep;
-			if (betAmount > Player.Money)
-			{
-				MessageBoxUI.Instance.ShowMessage("Not Enough Money!");
-				return;
-			}
-			
+			// if (betAmount > Player.Money)
+			// {
+			// 	MessageBoxUI.Instance.ShowMessage("Not Enough Money!");
+			// 	return;
+			// }
+
 			if (tggl2Players.isOn)
 				GameManager.Instance.PlayerCount = 2;
 			else if (tggl4Players.isOn)
 				GameManager.Instance.PlayerCount = 4;
-			GameManager.Instance.Bet = (int)sliderBetAmount.value * sliderStep;
+			GameManager.Instance.Bet = betAmount;
 
 			SceneLoader.Load(SceneLoader.Scenes.GameScene);
 		}

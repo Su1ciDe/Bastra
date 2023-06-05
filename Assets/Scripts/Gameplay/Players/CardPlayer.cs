@@ -49,7 +49,6 @@ namespace Gameplay.Players
 
 		public virtual void OnCardsDealt()
 		{
-			
 		}
 
 		public virtual void TurnToPlay()

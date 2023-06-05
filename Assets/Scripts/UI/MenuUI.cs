@@ -1,4 +1,8 @@
-﻿using DG.Tweening;
+﻿using System;
+using System.Threading.Tasks;
+using DG.Tweening;
+using Gameplay.Players;
+using Managers;
 using UnityEngine;
 using UnityEngine.UI;
 using Utilities;
@@ -55,12 +59,28 @@ namespace UI
 		private void BackToLobby()
 		{
 			//TODO: ask before leaving
-			SceneLoader.Load(SceneLoader.Scenes.LobbyScene);
+			AskIfSure(() =>
+			{
+				Player.Money -= GameManager.Instance.Bet;
+				SceneLoader.Load(SceneLoader.Scenes.LobbyScene);
+			});
+			// SceneLoader.Load(SceneLoader.Scenes.LobbyScene);
 		}
 
 		private void NewGame()
 		{
-			SceneLoader.Load(SceneLoader.Scenes.GameScene);
+			AskIfSure(() =>
+			{
+				Player.Money -= GameManager.Instance.Bet;
+				SceneLoader.Load(SceneLoader.Scenes.GameScene);
+			});
+
+			// SceneLoader.Load(SceneLoader.Scenes.GameScene);
+		}
+
+		private void AskIfSure(Action action)
+		{
+			MessageBoxUI.Instance.ShowMessageDialog("If you leave, you are going to lose the bet.\nAre you sure you want to leave?",action);
 		}
 	}
 }
