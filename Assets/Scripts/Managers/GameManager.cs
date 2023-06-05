@@ -42,6 +42,8 @@ namespace Managers
 		}
 		private State currentState;
 		public event UnityAction<State> OnStateChanged;
+		public static event UnityAction<int> OnGameWin; // int betWon 
+		public static event UnityAction<int> OnGameLose; // int betLost
 
 		private void Awake()
 		{
@@ -186,12 +188,15 @@ namespace Managers
 			if (winner is Player)
 			{
 				// player wins
-				Player.Instance.WinMatch(Bet * Players.Count);
+				int betWon = Bet * Players.Count;
+				Player.Instance.WinMatch(betWon);
+				OnGameWin?.Invoke(betWon);
 			}
 			else
 			{
 				// player loses
 				Player.Instance.LoseMatch();
+				OnGameLose?.Invoke(Bet);
 			}
 
 			CurrentState = State.GameOver;
