@@ -1,10 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DG.Tweening;
 using Managers;
 using UI;
 using UnityEngine;
 using UnityEngine.Events;
+using Utilities;
 
 namespace Gameplay.Players
 {
@@ -22,7 +22,7 @@ namespace Gameplay.Players
 
 		private PlayerSlot playerSlot;
 
-		public event UnityAction<int> OnScore;
+		public static event UnityAction<ScoreType> OnScore;
 		public event UnityAction OnPlayed;
 
 		public virtual void Setup(PlayerSlot _playerSlot)
@@ -40,6 +40,11 @@ namespace Gameplay.Players
 			card.Owner = this;
 
 			return seq;
+		}
+
+		public virtual void OnCardsDealt()
+		{
+			
 		}
 
 		public virtual void TurnToPlay()
@@ -77,9 +82,10 @@ namespace Gameplay.Players
 
 			CollectedCards.AddRange(cards);
 
-			OnScore?.Invoke(TotalScore);
+			OnScore?.Invoke(ScoreType.Fish);
 		}
 
+		// bastra
 		public void AddScore(Card card1, Card bastraCard, int score)
 		{
 			TotalScore += score;
@@ -97,15 +103,13 @@ namespace Gameplay.Players
 			CollectedCards.Add(card1);
 			BastraCards.Add(bastraCard);
 
-			OnScore?.Invoke(TotalScore);
+			OnScore?.Invoke(ScoreType.Bastra);
 		}
 
 		public void AddScore(int score)
 		{
 			TotalScore += score;
 			playerSlot.Score(TotalScore);
-
-			OnScore?.Invoke(TotalScore);
 		}
 	}
 }
