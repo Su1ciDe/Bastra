@@ -17,11 +17,12 @@ namespace Utilities
 
 		public static void Load(Scenes _targetScene)
 		{
+			targetScene = _targetScene;
 			var loadSceneAsync = SceneManager.LoadSceneAsync((int)_targetScene);
 			loadSceneAsync.completed += SceneLoaded;
 		}
 
-		private static void SceneLoaded(AsyncOperation obj)
+		private static void SceneLoaded(AsyncOperation op)
 		{
 			OnSceneLoad?.Invoke(targetScene);
 		}
