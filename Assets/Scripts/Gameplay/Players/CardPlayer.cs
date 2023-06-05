@@ -45,6 +45,7 @@ namespace Gameplay.Players
 		public virtual void TurnToPlay()
 		{
 			IsTurnToPlay = true;
+			playerSlot.ShowIndicator();
 		}
 
 		public virtual void PlayCard(Card card)
@@ -52,6 +53,7 @@ namespace Gameplay.Players
 			var sequence = Board.Instance.Place(card);
 			Hand.Remove(card);
 			IsTurnToPlay = false;
+			playerSlot.HideIndicator();
 
 			sequence.AppendCallback(() => OnPlayed?.Invoke());
 		}
@@ -102,7 +104,7 @@ namespace Gameplay.Players
 		{
 			TotalScore += score;
 			playerSlot.Score(TotalScore);
-			
+
 			OnScore?.Invoke(TotalScore);
 		}
 	}

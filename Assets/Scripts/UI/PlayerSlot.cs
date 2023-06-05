@@ -1,5 +1,7 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -9,13 +11,16 @@ namespace UI
 
 		[SerializeField] private TMP_Text txtScore;
 		[SerializeField] private Transform handHolder;
+		[SerializeField] private Image turnIndicator;
+		private Vector3 turnIndicatorStartPosition;
 
 		private PlayerProfileMini playerProfile;
 
 		private void Awake()
 		{
 			playerProfile = GetComponentInChildren<PlayerProfileMini>();
-			CardSlots = GetComponentsInChildren<CardSlot>();
+			CardSlots = handHolder.GetComponentsInChildren<CardSlot>();
+			turnIndicatorStartPosition = turnIndicator.transform.localPosition;
 		}
 
 		public void Setup(string playerName, int money)
@@ -26,6 +31,19 @@ namespace UI
 		public void Score(int score)
 		{
 			txtScore.SetText("Score: " + score.ToString());
+		}
+
+		public void ShowIndicator()
+		{
+			turnIndicator.gameObject.SetActive(true);
+			turnIndicator.transform.DOLocalMoveY(-25, .5f).SetEase(Ease.InOutSine).SetRelative(true).SetLoops(-1, LoopType.Yoyo);
+		}
+
+		public void HideIndicator()
+		{
+			turnIndicator.transform.DOKill();
+			turnIndicator.transform.localPosition = turnIndicatorStartPosition;
+			turnIndicator.gameObject.SetActive(false);
 		}
 	}
 }
